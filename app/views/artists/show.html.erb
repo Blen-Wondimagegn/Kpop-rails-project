@@ -12,6 +12,8 @@
 
 
 
-<h6><%= link_to "Edit ", artist_path(@artist) %></h6>
+<h6><%= link_to "Edit ", edit_artist_path(@artist) %></h6>
 
-<h6><%= link_to("Delete your glam squad", @glam, method: :delete, data:{confirm: "Do you really want to delete me?"}) %></h6>
+<h6><%= link_to("Delete an Artist", @artist, method: :delete, data:{confirm: "Do you really want to delete me?"}) %></h6>
+
+<%= link_to "Home", artists_path %>
