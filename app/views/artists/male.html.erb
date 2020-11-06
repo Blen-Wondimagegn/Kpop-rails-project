@@ -1,0 +1,7 @@
+<p>Male</p>
+<ul>
+<% @males.each do |male| %>
+  <h1><%= male.name%></h1>
+<% end  %>
+</ul>
+<%= link_to "Home", artists_path %>

@@ -1,0 +1,9 @@
+<%= form_with model: @artist do |f| %>
+Name <%= f.text_field :name %><br>
+Gener <%= f.text_field :gender %><br>
+Height <%= f.text_field :height %><br>
+Age <%= f.number_field :age %><br>
+
+ <%= f.submit %>
+<%end  %>
+<%= link_to "Home", artists_path %>

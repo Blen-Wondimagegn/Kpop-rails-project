@@ -1,0 +1,12 @@
+<%# <%=artist.name %> 
+
+<ul>
+<% @glams.each do |glam| %>
+<p></p>
+   <li> Glam Squad <%= link_to glam.glam_squad, glam_path(glam) %></li>
+<% end %>
+</ul>
+<%= link_to "Add New Squad", new_artist_glam_path %><br>
+<%= link_to "Home", artists_path %>
+
+<%# <h6><%= link_to "More info about this artist", artist_path %>

@@ -1,0 +1,17 @@
+<h1><%= @artist.name %></h1> 
+ <h1><%= @artist.gender %></h1>
+  <h1><%= @artist.height%> </h1>
+  <h1><%= @artist.age %></h1> 
+ 
+
+<ul>
+  <% @artist.glams.each do |glam| %>
+     <li><%= link_to glam.glam_squad, artist_glam_path(@artist, glam) %></li>
+  <% end %>
+</ul>
+
+
+
+<h6><%= link_to "Edit ", artist_path(@artist) %></h6>
+
+<h6><%= link_to("Delete your glam squad", @glam, method: :delete, data:{confirm: "Do you really want to delete me?"}) %></h6>
