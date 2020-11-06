@@ -1,5 +1,7 @@
 class GlamsController < ApplicationController
-  before_action :set_glam, only: [:show, :edit, :update, :destroy]
+ before_action :authenticate_user!
+    before_action :authenticate_user!
+    before_action :set_glam, only: [:show, :edit, :update, :destroy]
     def index 
     #  @glams = Glam.all
     #  if params[:kpop_id]
@@ -8,12 +10,12 @@ class GlamsController < ApplicationController
     #  else
     #  @glams = Glam.all
     #  end 
-     if params[:kpop_id]
-      if Kpop.find_by(id: params[:kpop_id])
-        @glams = Kpop.find(params[:kpop_id]).glams
+     if params[:artist_id]
+      if Artist.find_by(id: params[:artist_id])
+        @glams = Artist.find(params[:artist_id]).glams
       else
         flash[:alert] = "Artist not found"
-        redirect_to kpops_path
+        redirect_to artists_path
       end
     else  
       @glams = Glam.all
@@ -27,16 +29,16 @@ class GlamsController < ApplicationController
         # end
     if Glam.find_by(id: params[:id])
       @glam = Glam.find(params[:id])
-      if params[:kpop_id]
-        unless Kpop.find(params[:kpop_id]).glams.include?(@glam)
-          flash[:alert] = "Song not found"
-          redirect_to kpop_glam_path(params[:kpop_id])
+      if params[:artist_id]
+        unless Artist.find(params[:artist_id]).glams.include?(@glam)
+          flash[:alert] = "not found"
+          redirect_to artist_glam_path(params[:artist_id])
         end
       end
     else
-      flash[:alert] = "Song not found"
-      if params[:kpop_id]  
-        redirect_to kpop_glam_path(params[:kpop_id])
+      flash[:alert] = "not found"
+      if params[:artist_id]  
+        redirect_to artist_glam_path(params[:artist_id])
       else
         redirect_to glams_path
       end
@@ -94,13 +96,13 @@ class GlamsController < ApplicationController
 
   def destroy
     @glam.destroy
-    flash[:notice] = "Song deleted."
+    flash[:notice] = "deleted."
     redirect_to glams_path
   end
  
   private 
-  def set_kpop
-     @kpop = Kpop.find_by_id(params[:id])
+  def set_artist
+     @artist = Artist.find_by_id(params[:id])
     end 
 
     def set_glam
@@ -108,7 +110,7 @@ class GlamsController < ApplicationController
     end 
 
   def glam_params
-  params.require(:glam).permit(:makeup, :hair, :designer, :artist_name)
+  params.require(:glam).permit(:glam_squad, :makeup, :hair, :wardrobe)
  end 
 
 end
