@@ -1,24 +1,36 @@
 class ArtistsController < ApplicationController
-before_action :set_kpop, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!
+# except:[]
+    before_action :set_artist, only: [:show, :edit, :update, :destroy]
     def index  
-     @kpops = Kpop.all
-    #   binding.pry  
+     @artists = Artist.all
     end  
 
     def show
-    #  redirect_to kpop_path
+    
+    end 
+
+    def female 
+         @females = Artist.female_artists
+    end
+
+    def male
+      @males = Artist.male_artists
     end 
 
     def new 
-    @kpop = Kpop.new  
-    @kpop.glams.build 
-
+        @artist = Artist.new  
+        @artist.glams.build 
     end 
+    
+    # def home
+
+    # end
 
     def create
-        @kpop = Kpop.new(kpop_params)   
-        if @kpop.save
-            redirect_to @kpop
+        @artist = Artist.new(artist_params)   
+        if @artist.save
+            redirect_to @artist
             #  binding.pry
         else   
             render :new
@@ -31,28 +43,29 @@ before_action :set_kpop, only: [:show, :edit, :update, :destroy]
 
    def update 
     #  binding.pry
-     set_kpop
-     @kpop.update(kpop_params)
-        if @kpop.save
-          redirect_to @kpop
+       set_artist
+     @artist.update(artist_params)
+        if @artist.save
+          redirect_to @artist
         else
         render :edit
       end
    end 
 
     def destroy
-      @kpop.destroy
+      @artist.destroy
       flash[:notice] = "Kpop deleted."
-      redirect_to kpops_path
+      redirect_to artists_path
     end
 
 
     private 
 
-    def set_kpop
-     @kpop = Kpop.find_by_id(params[:id])
+    def set_artist
+     @artist = Artist.find_by_id(params[:id])
     end 
-    def kpop_params
-      params.require(:kpop).permit(:name, :gender, :height, :fav_quote, glams_attributes: [:makeup, :hair, :designer])
+
+    def artist_params
+      params.require(:artist).permit(:name, :gender, :height, :age, glams_attributes: [:glam_squad,:makeup, :hair, :wardrobe])
     end 
 end
