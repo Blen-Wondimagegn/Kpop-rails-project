@@ -1,12 +1,7 @@
-<%# <%=artist.name %> 
-
-<ul>
+<h2 class= "center"> YG FAMILY GLAM SQUADS</h2>
 <% @glams.each do |glam| %>
-<p></p>
-   <li> Glam Squad <%= link_to glam.glam_squad, glam_path(glam) %></li>
-<% end %>
+<ul class="collection with-header">
+<li class="collection-header"><h4> <li> Glam Squad <%= link_to glam.glam_squad, glam_path(glam) %></h4></li>
 </ul>
-<%= link_to "Add New Squad", new_artist_glam_path %><br>
-<%= link_to "Home", artists_path %>
-
-<%# <h6><%= link_to "More info about this artist", artist_path %>
+<% end %>
+ <%= link_to "Home", artists_path %> 

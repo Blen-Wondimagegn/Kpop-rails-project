@@ -1,9 +1,24 @@
+<div class="wrapper">
 <%= form_with model: @artist do |f| %>
-Name <%= f.text_field :name %><br>
-Gener <%= f.text_field :gender %><br>
-Height <%= f.text_field :height %><br>
-Age <%= f.number_field :age %><br>
+<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
 
- <%= f.submit %>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender, autocomplete: "gender" %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.text_field :height, autocomplete: "height" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age, autocomplete: "age" %>
+  </div>
+ <%= f.submit %> 
 <%end  %>
-<%= link_to "Home", artists_path %>
+ <%= link_to "Home", artists_path %>
+  

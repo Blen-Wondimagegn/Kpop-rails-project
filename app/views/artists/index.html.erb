@@ -1,10 +1,24 @@
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a  class="brand-logo">YG ENTERTAINMENT ARTISTS</a>
+      <ul class="right hide-on-med-and-down">
+       <li> <%= link_to "Female Artist",female_path(@female)%> </li>
+       <li> <%= link_to "Male Artist",male_path(@male) %> </li>
+       <li> <%= link_to "Add New Artist", new_artist_path %> </li>
+        <li><%= link_to 'Edit your account', edit_user_registration_path %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </nav>
+<% if user_signed_in? %>
+   <i class="small material-icons">account_circle </i><p class="align-right"> Welcome <%= current_user.username %></p></i><br>
+<%end %>
 
-<h2 class="center">yg solo kpops</h2>
 <% @artists.each do |artist| %>
-  <h1><%= link_to artist.name, artist_path(artist)%></h1>
+  <ul class="collection with-header">
+        <li class="collection-item"><div><p class="white "> <%= link_to artist.name, artist_path(artist)%> </p><a class="secondary-content"><i class="material-icons">send</i></a></div></li>
+      </ul>			
 <% end  %>
+</div>
 
-<h6><%= link_to "Female Artist",female_path(@female) %></h6>
-<h6><%= link_to "Male Artist",male_path(@male) %></h6>
-<%= link_to "Add New Artist", new_artist_path %> <br> 
 
