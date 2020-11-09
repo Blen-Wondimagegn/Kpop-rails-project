@@ -29,11 +29,13 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
+    /* background-image: url('images/smkg.png'); */
+    background-image: url('images/BigBang.jpg');
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
-  }
+  } 
   .container{
   align-content: right;
   width: 100%;
@@ -42,6 +44,7 @@
 
   .wrapper {
     background: whitesmoke;
+     background-image: url('images/BigBang.jpg');
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -73,9 +76,9 @@
      
 
   }
-  p.b{
+  p{
     /* margin-bottom: 18px; */
-    color: rgb(247, 97, 147);
+    color: black;
     font-size: 20px;
   }
 
@@ -136,10 +139,4 @@
 
   h1 {
     font-size: 24px;
-    /* line-height: 36px; */
-  }
-
-  h2 {
-    font-size: 18px;
-    /* line-height: 24px; */
-  }
+  } 
