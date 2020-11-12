@@ -1,5 +1,5 @@
 class CallbacksController < Devise::OmniauthCallbacksController
-before_action :authenticate_user!
+before_action :authenticate_user!, except:[:home]
 
     def github
         @user = User.from_omniauth(request.env["omniauth.auth"])

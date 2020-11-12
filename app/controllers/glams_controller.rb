@@ -1,5 +1,5 @@
 class GlamsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except:[:home]
     before_action :set_glam, only: [:show, :edit, :update, :destroy]
     def index 
      if params[:artist_id]

@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-before_action :authenticate_user!
+before_action :authenticate_user!, except:[:home]
 
     private
         def sign_up_params

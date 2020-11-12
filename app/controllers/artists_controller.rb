@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-before_action :authenticate_user!
+    before_action :authenticate_user!, except:[:home]
     before_action :set_artist, only: [:show, :edit, :update, :destroy]
     def index  
      @artists = Artist.all
@@ -16,7 +16,7 @@ before_action :authenticate_user!
     def male
       @males = Artist.male_artists
     end 
-
+    
     def new 
         @artist = Artist.new  
         @artist.glams.build 

@@ -1,24 +1,16 @@
-# README
+# YG ENTERTAINMENT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Rails-Project 
+Contains a min database for all the solo Artists In the Yg Entertainment company.
 
-Things you may want to cover:
+### Installing
+- Follow these instuctions at https://help.learn.co/en/articles/492935-how-to-manually-open-a-lab for properly cloning and running.
 
-* Ruby version
 
-* System dependencies
+## Contributing
 
-* Configuration
+Bug reports and pull requests are welcome on GitHub at https://github.com/billymeku/Kpop-rails-project.This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

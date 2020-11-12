@@ -17,10 +17,10 @@
     <li class="collection-item"><p class="white "> Age: <%= @artist.age%></p><a class="secondary-content"></a></div>
       </ul>
 
-<h4 class = "center"> List of Glam Squad for <%= @artist.name%></h4>
+<h4 class = "center white-text"> List of Glam Squad for <%= @artist.name%></h4>
   <% @artist.glams.each do |glam| %>
   <ul class="collection with-header">
-        <li class="collection-item"><div><p class="white "> <%= link_to glam.glam_squad, artist_glam_path(@artist, glam) %> </p><a class="secondary-content"><i class="material-icons">send</i></a></div></li>
+        <li class="collection-item"><div><p class="white "> <%= link_to glam.glam_squad, artist_glam_path(@artist, glam) %> </p><a class="secondary-content"></a></div></li>
     </ul>
   <% end %>
 
